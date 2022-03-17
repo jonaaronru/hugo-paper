@@ -1,11 +1,9 @@
-<div align="center">
-<h1>Paper <sup><sup><sub>5.1</sub></sup></sup></h1>
-
-Demo → [hugo-paper.vercel.app](https://hugo-paper.vercel.app/)
+<div>
+<h1>Paper Fork <sup><sup><sub>5.2</sub></sup></sup></h1>
 
 <hr />
 
-A simple, clean, flexible Hugo theme.
+Slighthly different version of [Paper theme](https://github.com/nanxiaobei/hugo-paper).
 
 ⚡️ Fast | 🦋 Fluent | 🪀 Smooth
 
@@ -13,24 +11,16 @@ A simple, clean, flexible Hugo theme.
 
 ---
 
-## Links
-
-Product Hunt: [producthunt.com/posts/hugo-paper](https://www.producthunt.com/posts/hugo-paper)
-
-Hugo themes: [themes.gohugo.io/hugo-paper](https://themes.gohugo.io/hugo-paper/)
-
 ## Overview
 
-![](https://raw.githubusercontent.com/nanxiaobei/hugo-paper/master/images/screenshot.png)
-![](https://raw.githubusercontent.com/nanxiaobei/hugo-paper/master/images/screenshot_dark.png)
-![](https://raw.githubusercontent.com/nanxiaobei/hugo-paper/master/images/screenshot_mobile.png)
+![](https://raw.githubusercontent.com/jonaaronru/hugo-paper/master/images/screenshot.png)
 
 ## Install
 
 Inside the folder of your Hugo project, run:
 
 ```bash
-git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper
+git submodule add https://github.com/jonaaronru/hugo-paper themes/paper
 ```
 
 Open `config.toml`, change `theme` to `"paper"`:
@@ -58,9 +48,3 @@ disqusShortname = 'YOUR_DISQUS_SHORTNAME'   # add disqus comments
 ## License
 
 [MIT License](https://github.com/nanxiaobei/hugo-paper/blob/master/LICENSE) (c) [nanxiaobei](https://lee.so/)
-
-## FUTAKE
-
-Try [**FUTAKE**](https://sotake.com/f) in WeChat. A mini app for your inspiration moments. 🌈
-
-![FUTAKE](https://s3.jpg.cm/2021/09/21/IFG3wi.png)

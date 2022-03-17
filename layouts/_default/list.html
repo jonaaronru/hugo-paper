@@ -13,8 +13,14 @@
 <!-- Articles -->
 {{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
 <article class="post-entry">
-  <h2>{{ .Title }}</h2>
-  <time>{{ .Date | time.Format ":date_medium" }}</time>
+  <div class="post-title">
+    <h2>{{ .Title }}</h2>
+    <p>
+      {{ $readTime := cond (gt .ReadingTime 1) "минут" "минуту" }}
+      <span>Читать {{.ReadingTime}} {{$readTime}}</span>
+      <time>{{ .Date | time.Format "2 January 2006" }}</time>
+    </p>
+  </div>
   <a href="{{ .Permalink }}"></a>
 </article>
 {{ end }}

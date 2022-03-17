@@ -3,8 +3,10 @@
 <article class="post-single">
   <header class="post-title">
     <p>
+      {{ $readTime := cond (gt .ReadingTime 1) "минут" "минуту" }}
+      <span>Читать {{.ReadingTime}} {{$readTime}}</span>
       {{ if .Date }}
-      <time>{{ .Date | time.Format ":date_medium" }}</time>
+      <time>{{ .Date | time.Format "2 January 2006" }}</time>
       {{ end }}
       {{ if or .Params.Author site.Author.name }}
       <span>{{ .Params.Author | default site.Author.name }}</span>

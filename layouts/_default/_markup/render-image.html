@@ -1,0 +1,30 @@
+{{- $img := .Page.Resources.GetMatch .Destination -}}
+{{- if and (not $img) .Page.File -}}
+    {{ $path := path.Join .Page.File.Dir .Destination }}
+    {{- $img = resources.Get $path -}}
+{{- end -}}
+<figure>
+    <picture>
+    
+        {{ if hugo.IsExtended }}
+            {{ $webp := $img.Resize "1280x q70 webp" }}
+            <source srcset="{{ $webp.RelPermalink | safeURL }}" type="image/webp">
+        {{ end }}
+    
+        
+        {{- with $img -}}
+            <img
+                src="{{ $img.RelPermalink | safeURL }}"
+                alt="{{ $.Text }}"
+                {{ with .Title }} title="{{ . }}"{{ end }}
+                loading="lazy"
+                decoding="async"
+                width="{{ .Width }}"
+                height="{{ .Height }}"
+            />
+        {{- end -}}
+    </picture>
+    {{ if .Title }}
+        <figcaption>{{ .Title }}</figcaption>
+    {{ end }}
+</figure>

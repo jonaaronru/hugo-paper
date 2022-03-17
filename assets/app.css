@@ -96,6 +96,22 @@ body > * {
   transition: none !important;
 }
 
+picture >source,
+picture >img{
+  width: 100%;
+  height: auto;
+}
+
+figure{
+  margin: 0 calc(-1 * var(--gap));
+  padding: 0;
+}
+
+figcaption{
+  margin: 16px var(--gap);
+  font-size: .8em;
+}
+
 /* Reset
 -------------------------------------------------- */
 

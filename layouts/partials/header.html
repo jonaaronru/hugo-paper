@@ -9,25 +9,8 @@
   </p>
   {{ end }}
 
-  <script>
-    let bodyClx = document.body.classList;
-    let btnDark = document.querySelector('.btn-dark');
-    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-    let darkVal = localStorage.getItem('dark');
 
-    let setDark = (isDark) => {
-      bodyClx[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark ? 'yes' : 'no');
-    };
 
-    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
-    requestAnimationFrame(() => bodyClx.remove('not-ready'));
-
-    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
-    sysDark.addEventListener('change', (event) => setDark(event.matches));
-  </script>
-
-  {{ $url := .RelPermalink }}<!---->
   {{ with site.Menus.main }}
   <nav class="menu">
     {{ range . }}
@@ -38,6 +21,10 @@
 
   {{ with $.Scratch.Get "social-list" }}
   <nav class="social">
+    <button
+      data-no-instant
+      class="btn-dark"
+      onclick="setDark(!document.body.classList.contains('dark'))"></button>
     {{ range . }}
     <a
       class="{{ . }}"

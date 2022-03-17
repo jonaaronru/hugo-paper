@@ -12,3 +12,12 @@ function setDark(isDark) {
 setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
 
 sysDark.addEventListener('change', (event) => setDark(event.matches));
+
+// on change screen
+window.addEventListener('resize', onWidonwResize);
+
+function onWidonwResize(){
+  if (window.innerWidth > 768){
+    document.querySelector('.nav-button').classList.remove('clicked')
+  }
+}

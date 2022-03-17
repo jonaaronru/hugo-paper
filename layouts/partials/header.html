@@ -10,6 +10,10 @@
   {{ end }}
 
 
+  <button class="nav-button" onclick="document.querySelector('.nav-button').classList.toggle('clicked')">
+    <span class="line top"></span>
+    <span class="line bottom"></span>
+  </button>
 
   {{ with site.Menus.main }}
   <nav class="menu">

@@ -23,14 +23,28 @@
   {{ $css := slice $app_css $custom_css | resources.Concat "app.css" | minify }}
   <link rel="preload stylesheet" as="style" href="{{ $css.Permalink }}" />
 
-  {{ if and .IsPage (not site.Params.disableHLJS) }}
-  <link rel="preload stylesheet" as="style" href="{{ `an-old-hope.min.css` | absURL }}" />
   <script
     defer
-    src="{{ `highlight.min.js` | absURL }}"
-    onload="hljs.initHighlightingOnLoad();"
+    data-no-instant
+    src="{{ `script.js` | absURL }}"
   ></script>
-  {{ end }}
+
+  <script
+    defer
+    data-no-instant
+    src="https://cdn.bootcss.com/instantclick/3.1.0/instantclick.min.js"
+    onload="
+    InstantClick.on('receive', function(url, body, title) {
+      if (localStorage.getItem('dark') === 'yes') {
+        body.classList.add('dark');
+        body.classList.remove('not-ready');
+      }
+      return { body: body, title: title };
+    });
+
+
+    InstantClick.init();"
+  ></script>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="{{ `theme.png` | absURL }}" />
